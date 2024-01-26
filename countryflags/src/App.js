@@ -10,9 +10,12 @@ export default function App(){
     useEffect(()=>{
         performAPICall()
       .then((flags) => {
-        console.log(flags)
-        setFlagsData(flags);
-        console.log(flagsdata);
+        if(flags.length){
+          console.log(flags)
+          setFlagsData(flags);
+          console.log(flagsdata);
+        }
+        
       })
       .catch(() => {
         console.log('Error occured when fetching flags data');
@@ -28,7 +31,7 @@ export default function App(){
         return apiData.data;
 
     }catch(e){
-      console.log(e);
+      console.log(e.message);
 
     }
   }
@@ -36,8 +39,8 @@ export default function App(){
     return(
         <>
         <Grid container spacing={2} layout={'row'} mt={2} sx={{ marginLeft:"50px", marginRight:"50px", width:"90vw"}}>
-        {flagsdata.length!==0 && flagsdata.map((data) => (
-          <Grid  item  sm={3} lg={12/7} sx={{}}>
+        {flagsdata.length !==0 && flagsdata.map((data) => (
+          <Grid  item  sm={3} lg={12/7}>
             <CountryCard data={data}/>
           </Grid>
         ))}
