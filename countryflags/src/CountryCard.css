@@ -1,0 +1,13 @@
+.cardmedia{
+    display: flex;
+    justify-content: center;
+flex-direction: row;
+padding: 10px;
+}
+
+
+.countryname{
+    margin: 10px;
+    text-align: center;
+    font-weight: 600;
+}
